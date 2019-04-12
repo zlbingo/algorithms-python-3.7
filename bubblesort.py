@@ -12,6 +12,7 @@ def bubblesort(arr):
         return []
     sorted_list = arr
     for i in range(len(sorted_list)-1):
+        bchange = False
         print('第%d次排序' % (i+1))
         # n个数只需要排n-1个数即可
         # n-1个数排序过程中每次将剩余元素中最大的放在序列最后
@@ -21,7 +22,10 @@ def bubblesort(arr):
             # 这时 sorted_list[j+1]刚好为列表的最后一个数
             if sorted_list[j+1] < sorted_list[j]:
                 sorted_list[j+1], sorted_list[j] = sorted_list[j], sorted_list[j+1]
+                bchange = True
             print(sorted_list)
+        if not bchange:
+            break
     return sorted_list
 
 
@@ -30,6 +34,3 @@ if __name__ == '__main__':
     print('排序前:', input_list)
     sorted_list = bubblesort(input_list)
     print('排序后:', sorted_list)
-
-
-
